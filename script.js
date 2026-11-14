@@ -76,22 +76,24 @@ function validateSignIn() {
 var cartCount = 0;
 function addToCart(prefix) {
     var selected = 0;
+var message = document.getElementById("msg-" + prefix);
+
     for (var i = 1; i <= 3; i++) {
         var box = document.getElementById(prefix + i);
         if (box.checked) {
             selected++;
         }
     }
-    if (selected == 0) {
-        var message = document.getElementById("msg-" + prefix);
-
-    }
+   
     if (selected == 0) {
         message.innerHTML = "Please choose at least one option first!";
         message.style.color = "#eb6d6d";
     } else {
         cartCount++;
         document.getElementById("cart-count").innerHTML = cartCount;
+        message.innerHTML = "Gift added to cart";
+        message.style.color = "#F2DACE";
+
     }
 
 
